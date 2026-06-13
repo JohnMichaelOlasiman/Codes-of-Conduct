@@ -1,0 +1,25 @@
+
+> professional-codes-presentation@1.0.0 dev
+> next dev -p 3001
+
+   ▲ Next.js 15.5.19
+   - Local:        http://localhost:3001
+   - Network:      http://172.20.10.6:3001
+
+ ✓ Starting...
+ ✓ Ready in 2.4s
+ ○ Compiling / ...
+ ✓ Compiled / in 5.9s (1353 modules)
+ GET / 200 in 6924ms
+ GET / 200 in 128ms
+ GET / 200 in 154ms
+ ✓ Compiled in 2.5s (1353 modules)
+ GET / 200 in 427ms
+ GET / 200 in 326ms
+ GET / 200 in 75ms
+ GET / 200 in 293ms
+ GET / 200 in 101ms
+ GET / 200 in 110ms
+ ✓ Compiled in 1028ms (1353 modules)
+ GET / 200 in 257ms
+ GET / 200 in 393ms

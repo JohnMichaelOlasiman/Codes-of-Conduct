@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f5;
+  color: #111827;
+  font-family: Aptos, "Segoe UI", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.presentation-atmosphere {
+  background-image:
+    radial-gradient(circle at 82% 18%, rgba(199, 255, 62, 0.12), transparent 19rem),
+    linear-gradient(rgba(17, 24, 39, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 24, 39, 0.035) 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+  mask-image: linear-gradient(to bottom, black 10%, rgba(0, 0, 0, 0.72) 80%, transparent);
+}
+
+.slide-grid {
+  position: relative;
+  z-index: 1;
+}
+
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #111827;
+}
+
+.status-chip {
+  border: 1px solid rgba(199, 255, 62, 0.38);
+  border-radius: 999px;
+  background: rgba(199, 255, 62, 0.1);
+  padding: 0.35rem 0.65rem;
+  color: #c7ff3e;
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.organization-cell::after {
+  position: absolute;
+  inset: auto -3rem -5rem auto;
+  height: 11rem;
+  width: 11rem;
+  border: 1px solid #d8dce2;
+  border-radius: 999px;
+  content: "";
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.organization-cell:hover::after {
+  transform: scale(1.18);
+}
+
+.nav-button {
+  display: grid;
+  height: 2.75rem;
+  width: 2.75rem;
+  place-items: center;
+  border: 1px solid #d8dce2;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+  box-shadow: 0 18px 40px -24px rgba(17, 24, 39, 0.32);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-button:hover:not(:disabled) {
+  background: #111827;
+  color: #c7ff3e;
+  transform: translateY(-1px);
+}
+
+.nav-button:focus-visible {
+  outline: 2px solid #111827;
+  outline-offset: 3px;
+}
+
+.nav-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.28;
+}
+
+@media (max-height: 700px) and (min-width: 1024px) {
+  .slide-grid {
+    transform: scale(0.86);
+    width: 116.2%;
+    max-width: 1860px;
+    margin-left: -8.1%;
+  }
+}
+
+@media (max-width: 639px) {
+  .text-outline {
+    -webkit-text-stroke-width: 1px;
+  }
+
+  .presentation-atmosphere {
+    background-size: auto, 40px 40px, 40px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
