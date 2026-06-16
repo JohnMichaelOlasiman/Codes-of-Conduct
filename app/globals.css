@@ -43,6 +43,11 @@ button {
   z-index: 1;
 }
 
+.slide-grid,
+.slide-grid * {
+  min-width: 0;
+}
+
 .text-outline {
   color: transparent;
   -webkit-text-stroke: 1.5px #111827;
@@ -119,12 +124,40 @@ button {
 }
 
 @media (max-width: 639px) {
+  .slide-grid {
+    max-height: 100svh;
+  }
+
   .text-outline {
     -webkit-text-stroke-width: 1px;
   }
 
   .presentation-atmosphere {
     background-size: auto, 40px 40px, 40px 40px;
+  }
+
+  .status-chip {
+    padding: 0.28rem 0.5rem;
+    font-size: 0.48rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 430px) and (max-height: 760px) {
+  .slide-grid {
+    transform: scale(0.88);
+    width: 113.64%;
+    max-height: 113.64svh;
+    margin-left: -6.82%;
+  }
+}
+
+@media (max-width: 380px) {
+  .slide-grid {
+    transform: scale(0.84);
+    width: 119.05%;
+    max-height: 119.05svh;
+    margin-left: -9.52%;
   }
 }
 

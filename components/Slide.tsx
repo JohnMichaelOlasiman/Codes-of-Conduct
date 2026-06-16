@@ -29,7 +29,7 @@ export default function Slide({ active, children, label }: SlideProps) {
         ease: [0.22, 1, 0.36, 1],
       }}
     >
-      <div className="slide-grid mx-auto w-full max-w-[1600px] px-6 py-24 sm:px-10 lg:pl-32 lg:pr-20 xl:pl-40 xl:pr-28">
+      <div className="slide-grid mx-auto w-full max-w-[1600px] px-4 py-16 sm:px-10 sm:py-24 lg:pl-32 lg:pr-20 xl:pl-40 xl:pr-28">
         {children}
       </div>
     </motion.section>

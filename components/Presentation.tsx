@@ -51,9 +51,29 @@ const ethicsPoints = [
 ];
 
 const organizations = [
-  { name: "ACM", detail: "Computing practice", index: "01" },
-  { name: "IEEE", detail: "Technology standards", index: "02" },
-  { name: "ISACA", detail: "Governance and trust", index: "03" },
+  {
+    name: "ACM",
+    fullName: "Association for Computing Machinery",
+    index: "01",
+  },
+  {
+    name: "IEEE",
+    fullName: "Institute of Electrical and Electronics Engineers",
+    index: "02",
+  },
+  {
+    name: "IFIP",
+    fullName: "International Federation for Information Processing",
+    index: "03",
+  },
+];
+
+const organizationImportance = [
+  "Promotes professional ethics and standards",
+  "Provides learning, training, and certification opportunities",
+  "Supports research and technological innovation",
+  "Connects professionals through conferences and networking",
+  "Encourages responsible use of computing for society",
 ];
 
 const decisionSteps = [
@@ -80,11 +100,11 @@ function Kicker({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-6 flex items-center gap-4 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-slate">
-      <span className="rounded-full border border-rule bg-white/70 px-3 py-1.5 text-graphite">
+    <div className="mb-3 flex min-w-0 items-center gap-2 font-mono text-[8px] font-semibold uppercase tracking-[0.14em] text-slate sm:mb-6 sm:gap-4 sm:text-[10px] sm:tracking-[0.18em]">
+      <span className="shrink-0 rounded-full border border-rule bg-white/70 px-2.5 py-1 text-graphite sm:px-3 sm:py-1.5">
         {code}
       </span>
-      <span>{children}</span>
+      <span className="truncate">{children}</span>
     </div>
   );
 }
@@ -98,7 +118,7 @@ function SlideHeading({
 }) {
   return (
     <h2
-      className={`max-w-5xl font-display text-[clamp(2.7rem,6vw,6.6rem)] font-black leading-[0.88] tracking-[-0.065em] text-graphite ${className}`}
+      className={`max-w-5xl font-display text-[clamp(1.9rem,9vw,2.45rem)] font-black leading-[0.92] tracking-[-0.055em] text-graphite sm:text-[clamp(2.7rem,6vw,6.6rem)] sm:leading-[0.88] sm:tracking-[-0.065em] ${className}`}
     >
       {children}
     </h2>
@@ -231,12 +251,12 @@ export default function Presentation() {
         <div className="grid items-center gap-10 lg:grid-cols-[1.18fr_0.82fr] lg:gap-16">
           <div>
             <Kicker code="FOUNDATION">Computing ethics</Kicker>
-            <h1 className="max-w-5xl font-display text-[clamp(3.3rem,7.4vw,8.5rem)] font-black leading-[0.82] tracking-[-0.075em] text-graphite">
+            <h1 className="max-w-5xl font-display text-[clamp(2.5rem,12vw,3.35rem)] font-black leading-[0.86] tracking-[-0.07em] text-graphite sm:text-[clamp(3.3rem,7.4vw,8.5rem)] sm:leading-[0.82] sm:tracking-[-0.075em]">
               Code shapes
               <br />
               <span className="text-outline">conduct.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-base font-medium leading-relaxed text-slate sm:text-lg lg:text-xl">
+            <p className="mt-4 max-w-xl text-sm font-medium leading-relaxed text-slate sm:mt-7 sm:text-lg lg:text-xl">
               Professional Codes of Conduct in Computing
             </p>
           </div>
@@ -244,21 +264,21 @@ export default function Presentation() {
           <Reveal
             active={current === 0}
             delay={0.18}
-            className="relative min-h-[260px] min-w-0 sm:min-h-[320px] lg:min-h-[480px]"
+            className="relative min-h-[220px] w-full max-w-[calc(100vw-2rem)] overflow-hidden sm:min-h-[320px] sm:max-w-full lg:min-h-[480px]"
           >
-            <div className="protocol-panel absolute inset-0 overflow-hidden rounded-[2rem] border border-graphite bg-graphite text-white shadow-panel">
-              <div className="flex items-center justify-between border-b border-white/15 px-6 py-5">
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/55">
+            <div className="protocol-panel relative h-full w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-[1.5rem] border border-graphite bg-graphite text-white shadow-panel sm:absolute sm:inset-0 sm:max-w-full sm:rounded-[2rem]">
+              <div className="flex items-center justify-between border-b border-white/15 px-4 py-3 sm:px-6 sm:py-5">
+                <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/55 sm:text-[10px] sm:tracking-[0.22em]">
                   Decision record
                 </span>
                 <span className="status-chip">Active</span>
               </div>
-              <div className="flex h-[calc(100%-65px)] flex-col justify-between p-6 sm:p-8">
-                <ShieldIcon className="h-12 w-12 text-signal sm:h-16 sm:w-16" />
-                <blockquote className="max-w-md font-display text-3xl font-bold leading-[1.02] tracking-[-0.035em] sm:text-4xl lg:text-5xl">
+              <div className="flex h-[calc(100%-45px)] flex-col justify-between p-4 sm:h-[calc(100%-65px)] sm:p-8">
+                <ShieldIcon className="h-9 w-9 text-signal sm:h-16 sm:w-16" />
+                <blockquote className="max-w-full font-display text-xl font-bold leading-[1.05] tracking-[-0.035em] sm:max-w-md sm:text-4xl lg:text-5xl">
                   Responsible decisions begin before the code is shipped.
                 </blockquote>
-                <p className="max-w-sm text-sm leading-relaxed text-white/55">
+                <p className="max-w-sm text-xs leading-relaxed text-white/55 sm:text-sm">
                   Ethics, responsibility, and trust in technology.
                 </p>
               </div>
@@ -286,7 +306,7 @@ export default function Presentation() {
             {ethicsPoints.map((point, index) => (
               <motion.div
                 key={point.title}
-                className="group grid grid-cols-[2.5rem_1fr_auto] items-center gap-4 border-b border-rule py-4 sm:grid-cols-[3.5rem_1fr_auto] sm:py-5"
+                className="group grid grid-cols-[2rem_1fr_auto] items-center gap-3 border-b border-rule py-2.5 sm:grid-cols-[3.5rem_1fr_auto] sm:gap-4 sm:py-5"
                 animate={
                   current === 1
                     ? { opacity: 1, x: 0 }
@@ -298,7 +318,7 @@ export default function Presentation() {
                   0{index + 1}
                 </span>
                 <div>
-                  <p className="text-lg font-bold tracking-[-0.025em] sm:text-xl">
+                  <p className="text-base font-bold tracking-[-0.025em] sm:text-xl">
                     {point.title}
                   </p>
                   <p className="text-xs text-slate sm:text-sm">{point.detail}</p>
@@ -311,49 +331,102 @@ export default function Presentation() {
       </Slide>
 
       <Slide active={current === 2} label={slides[2].title}>
-        <div>
-          <div className="flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
+        <div className="grid items-start gap-4 sm:gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+          <div>
             <div>
               <Kicker code="STANDARDS">Professional organizations</Kicker>
-              <SlideHeading className="max-w-4xl">
-                Shared values become shared practice.
+              <SlideHeading className="max-w-3xl">
+                What are computing professional organizations?
               </SlideHeading>
             </div>
-            <p className="max-w-xs border-l-2 border-signal pl-4 text-sm leading-relaxed text-slate">
-              They publish ethical standards and support professional
-              development.
-            </p>
+
+            <Reveal
+              active={current === 2}
+              delay={0.12}
+              className="definition-card mt-4 overflow-hidden rounded-[1.25rem] border border-graphite bg-white shadow-panel sm:mt-7 sm:rounded-[1.75rem]"
+            >
+              <div className="border-b border-rule px-4 py-2.5 sm:px-6 sm:py-4">
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate">
+                  Definition
+                </span>
+              </div>
+              <p className="p-4 text-sm font-medium leading-relaxed text-slate sm:p-6 sm:text-lg">
+                Computing professional organizations are groups that support
+                growth and development in computing and information technology.
+                They help professionals learn, connect, advance their careers,
+                and use technology responsibly for society.
+              </p>
+            </Reveal>
           </div>
 
-          <div className="mt-10 grid gap-px overflow-hidden rounded-[1.5rem] border border-rule bg-rule lg:mt-14 lg:grid-cols-3">
-            {organizations.map((organization, index) => (
-              <motion.article
-                key={organization.name}
-                className="organization-cell group relative min-h-40 overflow-hidden bg-white p-6 sm:min-h-48 lg:min-h-64 lg:p-8"
-                animate={
-                  current === 2
-                    ? { opacity: 1, y: 0 }
-                    : { opacity: 0, y: 24 }
-                }
-                transition={{ delay: 0.12 + index * 0.09 }}
-              >
-                <div className="flex items-start justify-between">
-                  <PeopleIcon className="h-7 w-7 text-slate" />
-                  <span className="font-mono text-[10px] text-slate">
-                    ORG/{organization.index}
-                  </span>
-                </div>
-                <div className="absolute bottom-6 left-6 lg:bottom-8 lg:left-8">
-                  <p className="font-display text-5xl font-black tracking-[-0.06em] lg:text-7xl">
-                    {organization.name}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate">
-                    {organization.detail}
-                  </p>
-                </div>
-                <span className="absolute bottom-0 left-0 h-1 w-0 bg-signal transition-all duration-500 group-hover:w-full" />
-              </motion.article>
-            ))}
+          <div className="grid gap-3 sm:gap-4">
+            <div className="rounded-[1.25rem] border border-rule bg-white/85 p-3 shadow-float backdrop-blur sm:rounded-[1.75rem] sm:p-5">
+              <div className="mb-3 flex items-center justify-between sm:mb-4">
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-slate">
+                  Examples
+                </span>
+                <PeopleIcon className="h-5 w-5 text-slate sm:h-6 sm:w-6" />
+              </div>
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                {organizations.map((organization, index) => (
+                  <motion.article
+                    key={organization.name}
+                    className="relative overflow-hidden rounded-xl border border-rule bg-canvas p-2.5 sm:rounded-2xl sm:p-4"
+                    animate={
+                      current === 2
+                        ? { opacity: 1, y: 0 }
+                        : { opacity: 0, y: 18 }
+                    }
+                    transition={{ delay: 0.14 + index * 0.07 }}
+                  >
+                    <span className="font-mono text-[9px] font-semibold text-slate">
+                      ORG/{organization.index}
+                    </span>
+                    <p className="mt-5 font-display text-2xl font-black tracking-[-0.06em] text-graphite sm:mt-7 sm:text-4xl">
+                      {organization.name}
+                    </p>
+                    <p className="mt-1.5 text-[7px] font-semibold uppercase leading-snug tracking-[0.06em] text-slate sm:mt-2 sm:text-[10px] sm:tracking-[0.1em]">
+                      {organization.fullName}
+                    </p>
+                    <span className="absolute right-2.5 top-2.5 h-2 w-2 rounded-full bg-signal ring-1 ring-graphite sm:right-4 sm:top-4 sm:h-2.5 sm:w-2.5" />
+                  </motion.article>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-[1.25rem] bg-graphite p-4 text-white shadow-panel sm:rounded-[1.75rem] sm:p-6">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
+                  Importance
+                </span>
+                <span className="h-2.5 w-2.5 rounded-full bg-signal shadow-signal" />
+              </div>
+              <div className="grid grid-cols-2 gap-x-3 sm:gap-x-5">
+                {organizationImportance.map((item, index) => (
+                  <motion.div
+                    key={item}
+                    className={`grid grid-cols-[1.35rem_1fr] gap-2 border-t border-white/15 py-2.5 sm:grid-cols-[1.8rem_1fr] sm:gap-3 sm:py-3 ${
+                      index === organizationImportance.length - 1
+                        ? "col-span-2"
+                        : ""
+                    }`}
+                    animate={
+                      current === 2
+                        ? { opacity: 1, x: 0 }
+                        : { opacity: 0, x: 16 }
+                    }
+                    transition={{ delay: 0.22 + index * 0.045 }}
+                  >
+                    <span className="font-mono text-[9px] text-white/35 sm:text-[10px]">
+                      0{index + 1}
+                    </span>
+                    <span className="text-[11px] font-medium leading-snug text-white/90 sm:text-sm">
+                      {item}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </Slide>
@@ -368,11 +441,11 @@ export default function Presentation() {
             <CompassIcon className="hidden h-20 w-20 text-slate sm:block lg:h-24 lg:w-24" />
           </div>
 
-          <ol className="decision-path relative mt-10 grid gap-2 lg:mt-16 lg:grid-cols-5 lg:gap-0">
+          <ol className="decision-path relative mt-6 grid gap-2 sm:mt-10 lg:mt-16 lg:grid-cols-5 lg:gap-0">
             {decisionSteps.map((step, index) => (
               <motion.li
                 key={step}
-                className="decision-step relative grid grid-cols-[3.25rem_1fr] items-center gap-4 border border-rule bg-white px-4 py-3 lg:block lg:min-h-56 lg:border-y lg:border-l-0 lg:border-r lg:px-5 lg:py-6 lg:first:border-l"
+                className="decision-step relative grid grid-cols-[2.75rem_1fr] items-center gap-3 border border-rule bg-white px-3 py-2.5 lg:block lg:min-h-56 lg:border-y lg:border-l-0 lg:border-r lg:px-5 lg:py-6 lg:first:border-l"
                 animate={
                   current === 3
                     ? { opacity: 1, y: 0 }
@@ -380,10 +453,10 @@ export default function Presentation() {
                 }
                 transition={{ delay: 0.1 + index * 0.085 }}
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-graphite font-mono text-xs font-bold text-white lg:h-12 lg:w-12">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-graphite font-mono text-[10px] font-bold text-white lg:h-12 lg:w-12 lg:text-xs">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="font-semibold leading-snug lg:mt-16 lg:text-lg">
+                <p className="text-sm font-semibold leading-snug sm:text-base lg:mt-16 lg:text-lg">
                   {step}
                 </p>
                 {index < decisionSteps.length - 1 && (
@@ -407,7 +480,7 @@ export default function Presentation() {
             <AlertIcon className="mt-8 h-14 w-14 text-slate" />
           </div>
 
-          <div className="relative overflow-hidden rounded-[1.75rem] bg-graphite p-5 text-white shadow-panel sm:p-7">
+          <div className="relative overflow-hidden rounded-[1.25rem] bg-graphite p-4 text-white shadow-panel sm:rounded-[1.75rem] sm:p-7">
             <div className="mb-4 flex items-center justify-between">
               <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/45">
                 Consequence map
@@ -417,7 +490,7 @@ export default function Presentation() {
             {consequences.map((consequence, index) => (
               <motion.div
                 key={consequence.label}
-                className="grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 border-t border-white/15 py-3.5 sm:grid-cols-[3.5rem_1fr_auto] sm:py-4"
+                className="grid grid-cols-[1.6rem_1fr_auto] items-center gap-2 border-t border-white/15 py-2.5 sm:grid-cols-[3.5rem_1fr_auto] sm:gap-3 sm:py-4"
                 animate={
                   current === 4
                     ? { opacity: 1, x: 0 }
@@ -428,10 +501,10 @@ export default function Presentation() {
                 <span className="font-mono text-[10px] text-white/35">
                   0{index + 1}
                 </span>
-                <span className="text-base font-semibold sm:text-lg">
+                <span className="text-sm font-semibold sm:text-lg">
                   {consequence.label}
                 </span>
-                <span className="rounded-full border border-white/20 px-2.5 py-1 font-mono text-[9px] uppercase tracking-wider text-white/55">
+                <span className="rounded-full border border-white/20 px-2 py-1 font-mono text-[8px] uppercase tracking-wider text-white/55 sm:px-2.5 sm:text-[9px]">
                   {consequence.scope}
                 </span>
               </motion.div>
@@ -456,7 +529,7 @@ export default function Presentation() {
                 />
               </span>
             </SlideHeading>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-slate sm:text-lg">
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate sm:mt-8 sm:text-lg">
               Computing professionals protect users and society through the
               choices they make.
             </p>
@@ -470,7 +543,7 @@ export default function Presentation() {
             ].map((point, index) => (
               <motion.div
                 key={point}
-                className="grid grid-cols-[auto_1fr] items-center gap-4 border-b border-rule py-5"
+                className="grid grid-cols-[auto_1fr] items-center gap-3 border-b border-rule py-3.5 sm:gap-4 sm:py-5"
                 animate={
                   current === 5
                     ? { opacity: 1, x: 0 }
